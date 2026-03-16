@@ -1,72 +1,97 @@
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    background-color: #ffeef2; /* Soft pink */
+    font-family: Arial, sans-serif;
+    background: #ffeef3;
     color: #333;
 }
 
+/* Header & Nav */
 header {
-    background-color: #ff6fa8;
+    background: #ff6fa8;
     padding: 15px;
     text-align: center;
+    color: white;
 }
-
 nav ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 10px 0 0;
     text-align: center;
 }
-
 nav ul li {
     display: inline-block;
-    margin: 0 15px;
+    margin: 0 12px;
 }
-
 nav ul li a {
-    text-decoration: none;
     color: white;
     font-weight: bold;
+    text-decoration: none;
 }
-
 nav ul li a:hover {
     text-decoration: underline;
 }
 
+/* Sections */
 .container {
     width: 80%;
     margin: auto;
-    padding: 20px;
+    padding: 40px 0;
 }
 
-img {
-    width: 250px;
-    border-radius: 8px;
+.container img {
+    width: 230px;
     margin: 10px;
+    border-radius: 6px;
 }
 
-table {
+.container iframe {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-table, th, td {
-    border: 1px solid #ff8fcb;
-    padding: 10px;
-    text-align: center;
-}
-
-footer {
-    background-color: #ff6fa8;
-    padding: 10px;
-    text-align: center;
-    margin-top: 20px;
-    color: white;
+    height: 315px;
+    margin: 15px 0;
 }
 
 .gallery img:hover {
     transform: scale(1.05);
-    transition: 0.3s ease;
+    transition: 0.3s;
+}
+
+/* Tables */
+.container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+.container table, .container th, .container td {
+    border: 1px solid #ff8fcd;
+    padding: 12px;
+    text-align: center;
+}
+
+/* Forms */
+.container input, .container textarea {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ff8fcd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.container button {
+    background: #ff6fa8;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.container button:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background: #ff6fa8;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    margin-top: 30px;
 }
