@@ -1,122 +1,577 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>My Flower Web Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bloom & Petal — Luxury Florals</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet"/>
 </head>
-
 <body>
-  <div>
-    <h1My Flower Web Page!</h1>
+
+  <!-- ===== CURSOR ===== -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- ===== LOADER ===== -->
+  <div class="loader" id="loader">
+    <div class="loader-flower">✿</div>
+    <p class="loader-text">Bloom & Petal</p>
   </div>
 
-  <img src="Images/lilies.jpg" alt="lilies" style="width:100px;height:150px;">
-  <img src="Images/sophia sunflowers.jpg" alt="sophia sunflowers" style="width:100px;height:150px;">
-  <img src="Images/mixed flowers.jpg" alt="sunflowers" style="width:100px;height:150px;">
-
-  <iframe id="player" src="https://www.youtube.com/embed/X8Vgp5Q8JlA" allowfullscreen class="" width="480"
-    height="300"></iframe>
-
-<h1>Nested list of flowers</h1>
-<ul>
-<li>Rose</li>
-  <li>Lily
-    <ul>
-      <li>Tiger Lily</li>
-      <li>Calla Lily</li>
+  <!-- ===== NAV ===== -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo">✿ Bloom & Petal</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#video">Stories</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-  </li>
-  <li>Tulip</li>
-  <li>Orchid
-    <ul>
-      <li>Phalaenopsis</li>
-      <li>Cattleya</li>
-    </ul>
-  </li>
-  <li>Sunflower</li>
-  <li>Peony
-    <ul>
-      <li>Coral Charm</li>
-      <li>Sarah Bernhardt</li>
-    </ul>
-  </li>
-  <li>Iris</li>
-</ul>
+    <button class="nav-cta" onclick="scrollToSection('contact')">Order Now</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-<h2>flowers </h2>
-<table border="1">
-  <tr>
-    <th>Red Flowers</th>
-    <th>Yellow Flowers</th>
-    <th>Purple Flowers</th>
-    <th>White Flowers</th>
-    <th>Pink Flowers</th>
-    <th>Orange Flowers</th>
-  </tr>
-  <tr>
-    <td>Carnation</td>
-    <td>Daffodil</td>
-    <td>Allium</td>
-    <td>Daisy</td>
-    <td>Camellia</td>
-    <td>Calendula</td>
-  </tr>
-  <tr>
-    <td>Geranium</td>
-    <td>Dahlia</td>
-    <td>Aster</td>
-    <td>Gardenia</td>
-    <td>Carnation</td>
-    <td>Dahlia</td>
-  </tr>
-  <tr>
-    <td>Poppy</td>
-    <td>Marigold</td>
-    <td>Hyacinth</td>
-    <td>Jasmine</td>
-    <td>Peony</td>
-    <td>Marigold</td>
-  </tr>
-  <tr>
-    <td>Rose</td>
-    <td>Sunflower</td>
-    <td>Iris</td>
-    <td>Lily</td>
-    <td>Rose</td>
-    <td>Poppy</td>
-  </tr>
-  <tr>
-    <td>Tulip</td>
-    <td>Tulip</td>
-    <td>Lavender</td>
-    <td>Orchid</td>
-    <td>Tulip</td>
-    <td>Zinnia</td>
-  </tr>
-</table>
-
-<h2>Blockquote</h2>
-<p>As renowned florist Constance Spry once said:</p>
-<blockquote>
-  <p>"Flowers really do intoxicate me. I have the same feeling about flowers that some people have about wine or beautiful women. The beauty of a flower can transport you to another world, and arranging them is not just a craft—it's an art form that speaks to the soul."</p>
-</blockquote>
-<p>This quote emphasizes that flowers possess a unique power to inspire and elevate our spirits. It suggests that floral design transcends mere decoration, becoming a meaningful expression of beauty and creativity that touches both the arranger and those who experience their work.</p>
- 
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="closeMobileMenu()">About</a>
+    <a href="#gallery" onclick="closeMobileMenu()">Gallery</a>
+    <a href="#video" onclick="closeMobileMenu()">Stories</a>
+    <a href="#shop" onclick="closeMobileMenu()">Shop</a>
+    <a href="#contact" onclick="closeMobileMenu()">Contact</a>
   </div>
 
-  
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1490750967868-88df5691cc63?w=1800&auto=format&fit=crop" alt="Beautiful floral background" class="hero-img"/>
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-sub">— Artisan Florals Since 1998 —</p>
+      <h1 class="hero-title">
+        Where Every<br/>
+        <em>Petal</em> Tells<br/>
+        a Story
+      </h1>
+      <p class="hero-desc">Handcrafted bouquets, installations & living arrangements designed for unforgettable moments.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="scrollToSection('shop')">Explore Collection</button>
+        <button class="btn-ghost" onclick="scrollToSection('video')">Watch Our Story ▶</button>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===== MARQUEE ===== -->
+  <div class="marquee-bar">
+    <div class="marquee-track">
+      <span>Roses</span><span>✿</span>
+      <span>Peonies</span><span>✿</span>
+      <span>Sunflowers</span><span>✿</span>
+      <span>Lavender</span><span>✿</span>
+      <span>Orchids</span><span>✿</span>
+      <span>Tulips</span><span>✿</span>
+      <span>Wildflowers</span><span>✿</span>
+      <span>Dahlias</span><span>✿</span>
+      <span>Roses</span><span>✿</span>
+      <span>Peonies</span><span>✿</span>
+      <span>Sunflowers</span><span>✿</span>
+      <span>Lavender</span><span>✿</span>
+      <span>Orchids</span><span>✿</span>
+      <span>Tulips</span><span>✿</span>
+      <span>Wildflowers</span><span>✿</span>
+      <span>Dahlias</span><span>✿</span>
+    </div>
+  </div>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="about">
+    <div class="about-img-wrap">
+      <img src="https://images.unsplash.com/photo-1487530811015-780f5f60af20?w=900&auto=format&fit=crop" alt="Florist at work"/>
+      <div class="about-img-accent">
+        <img src="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?w=500&auto=format&fit=crop" alt="Close up roses"/>
+      </div>
+      <div class="about-badge">25+ Years of Bloom</div>
+    </div>
+    <div class="about-text">
+      <p class="section-eyebrow">Our Story</p>
+      <h2 class="section-title">Flowers are our<br/><em>language of love</em></h2>
+      <p>Born from a passion for natural beauty, Bloom & Petal was founded in the heart of London to bring handcrafted, seasonal florals to every celebration — from intimate dinners to grand weddings.</p>
+      <p>Each arrangement is composed with intention, using only ethically sourced blooms from local growers and certified sustainable farms.</p>
+      <div class="about-stats">
+        <div class="stat"><span class="stat-num">12K+</span><span>Happy Clients</span></div>
+        <div class="stat"><span class="stat-num">200+</span><span>Flower Varieties</span></div>
+        <div class="stat"><span class="stat-num">98%</span><span>Satisfaction Rate</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section class="gallery-section" id="gallery">
+    <div class="section-header">
+      <p class="section-eyebrow">Our Work</p>
+      <h2 class="section-title">A Bouquet of <em>Moments</em></h2>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="gallery-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="wedding">Weddings</button>
+      <button class="filter-btn" data-filter="bouquet">Bouquets</button>
+      <button class="filter-btn" data-filter="decor">Décor</button>
+      <button class="filter-btn" data-filter="garden">Garden</button>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item tall" data-cat="wedding">
+        <img src="https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?w=800&auto=format&fit=crop" alt="Wedding flowers"/>
+        <div class="gallery-overlay"><span>Wedding Arch</span></div>
+      </div>
+      <div class="gallery-item" data-cat="bouquet">
+        <img src="https://images.unsplash.com/photo-1548460066-8c85e5cd1f26?w=600&auto=format&fit=crop" alt="Pink roses bouquet"/>
+        <div class="gallery-overlay"><span>Pink Romance</span></div>
+      </div>
+      <div class="gallery-item" data-cat="decor">
+        <img src="https://images.unsplash.com/photo-1470509037663-253d62d4ef7f?w=600&auto=format&fit=crop" alt="Flower decor"/>
+        <div class="gallery-overlay"><span>Table Decor</span></div>
+      </div>
+      <div class="gallery-item wide" data-cat="garden">
+        <img src="https://images.unsplash.com/photo-1444930694458-01babf71870c?w=900&auto=format&fit=crop" alt="Garden in bloom"/>
+        <div class="gallery-overlay"><span>Garden in Bloom</span></div>
+      </div>
+      <div class="gallery-item" data-cat="bouquet">
+        <img src="https://images.unsplash.com/photo-1533616688419-b0d8bde11b6c?w=600&auto=format&fit=crop" alt="Sunflower bouquet"/>
+        <div class="gallery-overlay"><span>Summer Sun</span></div>
+      </div>
+      <div class="gallery-item tall" data-cat="wedding">
+        <img src="https://images.unsplash.com/photo-1457289651977-2c0f25de0d07?w=700&auto=format&fit=crop" alt="Wedding bouquet"/>
+        <div class="gallery-overlay"><span>Bridal Bloom</span></div>
+      </div>
+      <div class="gallery-item" data-cat="decor">
+        <img src="https://images.unsplash.com/photo-1457282367193-e3b79e38f207?w=600&auto=format&fit=crop" alt="Floral arrangement"/>
+        <div class="gallery-overlay"><span>Seasonal Elegance</span></div>
+      </div>
+      <div class="gallery-item" data-cat="garden">
+        <img src="https://images.unsplash.com/photo-1465412672409-0b0e5f5f8a91?w=600&auto=format&fit=crop" alt="Wild poppies"/>
+        <div class="gallery-overlay"><span>Wild Poppies</span></div>
+      </div>
+      <div class="gallery-item wide" data-cat="bouquet">
+        <img src="https://images.unsplash.com/photo-1504325051823-18e3cfa14f9a?w=900&auto=format&fit=crop" alt="Mixed bouquet"/>
+        <div class="gallery-overlay"><span>Mixed Bloom</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VIDEO SECTION ===== -->
+  <section class="video-section" id="video">
+    <div class="section-header light">
+      <p class="section-eyebrow">Our Stories</p>
+      <h2 class="section-title">The Art of <em>Arrangement</em></h2>
+    </div>
+    <div class="videos-grid">
+
+      <div class="video-card featured">
+        <div class="video-thumb">
+          <iframe
+            src="https://www.youtube.com/embed/Y2_-JHiRVU4?rel=0&modestbranding=1"
+            title="Beautiful flower arrangement tutorial"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-info">
+          <span class="video-tag">Tutorial</span>
+          <h3>The Art of Bouquet Design</h3>
+          <p>A step-by-step guide to building a stunning hand-tied bouquet with seasonal blooms.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-thumb">
+          <iframe
+            src="https://www.youtube.com/embed/1VoMkPQ8n58?rel=0&modestbranding=1"
+            title="Wedding flower decoration"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-info">
+          <span class="video-tag">Wedding</span>
+          <h3>Wedding Floral Magic</h3>
+          <p>Behind the scenes of a full wedding floral installation.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-thumb">
+          <iframe
+            src="https://www.youtube.com/embed/BHACKCNDMW8?rel=0&modestbranding=1"
+            title="Flower care tips"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-info">
+          <span class="video-tag">Care Guide</span>
+          <h3>How to Keep Flowers Fresh</h3>
+          <p>Expert tips to extend the life of your beautiful blooms at home.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== SHOP ===== -->
+  <section class="shop-section" id="shop">
+    <div class="section-header">
+      <p class="section-eyebrow">Shop</p>
+      <h2 class="section-title">Curated <em>Collections</em></h2>
+    </div>
+    <div class="shop-grid">
+
+      <div class="shop-card">
+        <div class="shop-img-wrap">
+          <img src="https://images.unsplash.com/photo-1548460066-8c85e5cd1f26?w=600&auto=format&fit=crop" alt="Classic Rose Bouquet"/>
+          <span class="shop-badge">Best Seller</span>
+        </div>
+        <div class="shop-info">
+          <h3>Classic Rose Bouquet</h3>
+          <p>12 premium long-stem roses wrapped in artisanal paper.</p>
+          <div class="shop-footer">
+            <span class="price">$48.00</span>
+            <button class="btn-cart" onclick="addToCart(this, 'Classic Rose Bouquet')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-card">
+        <div class="shop-img-wrap">
+          <img src="https://images.unsplash.com/photo-1533616688419-b0d8bde11b6c?w=600&auto=format&fit=crop" alt="Sunshine Sunflower"/>
+        </div>
+        <div class="shop-info">
+          <h3>Sunshine Sunflower Mix</h3>
+          <p>A bright, cheerful bundle of sunflowers and wildflowers.</p>
+          <div class="shop-footer">
+            <span class="price">$36.00</span>
+            <button class="btn-cart" onclick="addToCart(this, 'Sunshine Sunflower Mix')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-card">
+        <div class="shop-img-wrap">
+          <img src="https://images.unsplash.com/photo-1457289651977-2c0f25de0d07?w=600&auto=format&fit=crop" alt="Bridal White Collection"/>
+          <span class="shop-badge new">New</span>
+        </div>
+        <div class="shop-info">
+          <h3>Bridal White Collection</h3>
+          <p>Ethereal white peonies, roses & lily of the valley.</p>
+          <div class="shop-footer">
+            <span class="price">$95.00</span>
+            <button class="btn-cart" onclick="addToCart(this, 'Bridal White Collection')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-card">
+        <div class="shop-img-wrap">
+          <img src="https://images.unsplash.com/photo-1465412672409-0b0e5f5f8a91?w=600&auto=format&fit=crop" alt="Wild Meadow Bouquet"/>
+        </div>
+        <div class="shop-info">
+          <h3>Wild Meadow Bouquet</h3>
+          <p>Free-spirited mix of poppies, cornflowers & grasses.</p>
+          <div class="shop-footer">
+            <span class="price">$42.00</span>
+            <button class="btn-cart" onclick="addToCart(this, 'Wild Meadow Bouquet')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- Cart Toast -->
+    <div class="cart-toast" id="cartToast">✿ Added to cart!</div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials">
+    <div class="section-header light">
+      <p class="section-eyebrow">Kind Words</p>
+      <h2 class="section-title">Our Clients <em>Adore Us</em></h2>
+    </div>
+    <div class="testi-track" id="testiTrack">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"The most breathtaking wedding arch I have ever seen. Our guests are still talking about it months later."</p>
+        <div class="testi-author">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah M."/>
+          <div><strong>Sarah M.</strong><span>Bride, June 2024</span></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Every week they deliver and every week I am amazed. Fresh, creative and always on time. Perfection."</p>
+        <div class="testi-author">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James K."/>
+          <div><strong>James K.</strong><span>Subscription Customer</span></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"I ordered a last-minute birthday bouquet and it arrived perfectly wrapped and more stunning than the photo."</p>
+        <div class="testi-author">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya L."/>
+          <div><strong>Priya L.</strong><span>Gift Customer</span></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Their team transformed our entire hotel lobby for the gala. Simply stunning florals that elevated the whole evening."</p>
+        <div class="testi-author">
+          <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Claire D."/>
+          <div><strong>Claire D.</strong><span>Event Organiser</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-dots" id="testiDots"></div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact-section" id="contact">
+    <div class="contact-left">
+      <p class="section-eyebrow">Get In Touch</p>
+      <h2 class="section-title">Let's Create<br/><em>Something Beautiful</em></h2>
+      <p>Whether it's a wedding, a special occasion or a weekly subscription — we'd love to hear from you.</p>
+      <div class="contact-details">
+        <div class="contact-item">
+          <span class="contact-icon">✿</span>
+          <div><strong>Visit Us</strong><p>12 Petal Lane, London, UK</p></div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">✉</span>
+          <div><strong>Email</strong><p>hello@bloomandpetal.com</p></div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">☎</span>
+          <div><strong>Call</strong><p>+44 (0) 20 1234 5678</p></div>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Jane Smith" required/>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="jane@example.com" required/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Occasion</label>
+        <select>
+          <option value="">Select occasion…</option>
+          <option>Wedding</option>
+          <option>Birthday</option>
+          <option>Corporate Event</option>
+          <option>Subscription</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Your Message</label>
+        <textarea rows="5" placeholder="Tell us about your dream arrangement…" required></textarea>
+      </div>
+      <button type="submit" class="btn-primary full">Send Message ✿</button>
+      <p class="form-success" id="formSuccess">✿ Thank you! We'll be in touch soon.</p>
+    </form>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">✿ Bloom & Petal</div>
+        <p>Crafting beauty, one petal at a time. Ethically sourced, lovingly arranged.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="Pinterest">pt</a>
+          <a href="#" aria-label="Facebook">fb</a>
+          <a href="#" aria-label="TikTok">tk</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Shop</h4>
+        <a href="#shop">Bouquets</a>
+        <a href="#shop">Wedding</a>
+        <a href="#shop">Subscriptions</a>
+        <a href="#shop">Gift Cards</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="#about">About Us</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#video">Stories</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Stay in Bloom</h4>
+        <p>Get seasonal inspiration & exclusive offers.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="your@email.com"/>
+          <button onclick="subscribeNewsletter(event)">✿</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Bloom & Petal Ltd. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ─── Loader ───────────────────────────────────
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loader').classList.add('hidden');
+      }, 1800);
+    });
+
+    // ─── Custom Cursor ────────────────────────────
+    const cursor = document.getElementById('cursor');
+    const dot = document.getElementById('cursorDot');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      dot.style.left = e.clientX + 'px';
+      dot.style.top = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button, .gallery-item, .shop-card').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+
+    // ─── Sticky Nav ───────────────────────────────
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ─── Hamburger ────────────────────────────────
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    });
+    function closeMobileMenu() {
+      document.getElementById('mobileMenu').classList.remove('open');
+    }
+
+    // ─── Smooth Scroll ────────────────────────────
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // ─── Gallery Filter ───────────────────────────
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.gallery-item').forEach(item => {
+          const show = filter === 'all' || item.dataset.cat === filter;
+          item.style.opacity = '0';
+          item.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            item.style.display = show ? 'block' : 'none';
+            if (show) {
+              requestAnimationFrame(() => {
+                item.style.opacity = '1';
+                item.style.transform = 'scale(1)';
+              });
+            }
+          }, 200);
+        });
+      });
+    });
+
+    // ─── Cart Toast ───────────────────────────────
+    function addToCart(btn, name) {
+      btn.textContent = '✓ Added!';
+      btn.classList.add('added');
+      const toast = document.getElementById('cartToast');
+      toast.textContent = `✿ "${name}" added to cart!`;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+        btn.textContent = 'Add to Cart';
+        btn.classList.remove('added');
+      }, 2500);
+    }
+
+    // ─── Contact Form ─────────────────────────────
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.getElementById('formSuccess').classList.add('show');
+      e.target.reset();
+      setTimeout(() => {
+        document.getElementById('formSuccess').classList.remove('show');
+      }, 4000);
+    }
+
+    // ─── Newsletter ───────────────────────────────
+    function subscribeNewsletter(e) {
+      e.preventDefault();
+      const input = e.target.previousElementSibling;
+      if (input.value) {
+        input.value = '✿ You\'re subscribed!';
+        input.style.color = 'var(--gold)';
+        setTimeout(() => {
+          input.value = '';
+          input.style.color = '';
+        }, 3000);
+      }
+    }
+
+    // ─── Testimonial Slider ───────────────────────
+    const cards = document.querySelectorAll('.testi-card');
+    const dotsContainer = document.getElementById('testiDots');
+    let currentTesti = 0;
+    cards.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.classList.add('dot');
+      if (i === 0) d.classList.add('active');
+      d.addEventListener('click', () => goToTesti(i));
+      dotsContainer.appendChild(d);
+    });
+    function goToTesti(idx) {
+      cards[currentTesti].classList.remove('active');
+      dotsContainer.children[currentTesti].classList.remove('active');
+      currentTesti = idx;
+      cards[currentTesti].classList.add('active');
+      dotsContainer.children[currentTesti].classList.add('active');
+    }
+    cards[0].classList.add('active');
+    setInterval(() => goToTesti((currentTesti + 1) % cards.length), 4000);
+
+    // ─── Scroll Reveal ────────────────────────────
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.about, .gallery-section, .shop-card, .video-card, .contact-section').forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+  </script>
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
