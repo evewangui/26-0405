@@ -9,6 +9,41 @@
             height: 350px !important;
             object-fit: cover !important;
         }
+        .info-boxes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .info-box {
+            background: #fff0f5;
+            border: 1px solid #ff8fcd;
+            border-radius: 10px;
+            padding: 20px;
+            flex: 1;
+            min-width: 220px;
+        }
+        .info-box h3 {
+            color: #ff6fa8;
+            margin-top: 0;
+        }
+        .info-box p, .info-box li {
+            margin: 6px 0;
+            font-size: 15px;
+        }
+        .offer-banner {
+            background: #ff6fa8;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 16px;
+        }
+        .offer-banner span {
+            font-weight: bold;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
@@ -25,11 +60,51 @@
     </ul>
 </nav>
 <div class="container">
-    <h2>Welcome to Bloom Haven</h2>
+    <h2>Welcome to Bloom Haven 🌸</h2>
     <p>We offer a beautiful selection of fresh flowers for all your special moments. Whether you need a bouquet, floral arrangement, or single stems, we are here to serve you.</p>
     <p>Explore our collection, watch helpful videos, and check our affordable prices!</p>
+
     <img src="Images/red roses.jpg" alt="Rose">
     <img src="Images/sunflowers.webp" alt="Sunflower">
+
+    <!-- Special Offers Banner -->
+    <div class="offer-banner">
+        🌷 <span>Special Offers!</span> 🌷<br>
+        Buy 2 bouquets and get 10% off! | Free delivery on orders over KSh 5,000 | Valentine's Day special — roses from KSh 1,500!
+    </div>
+
+    <!-- Info Boxes -->
+    <div class="info-boxes">
+
+        <!-- Opening Hours -->
+        <div class="info-box">
+            <h3>🕐 Opening Hours</h3>
+            <p>Monday – Friday: 8:00 AM – 7:00 PM</p>
+            <p>Saturday: 9:00 AM – 6:00 PM</p>
+            <p>Sunday: 10:00 AM – 4:00 PM</p>
+            <p>Public Holidays: 10:00 AM – 2:00 PM</p>
+        </div>
+
+        <!-- Delivery Times -->
+        <div class="info-box">
+            <h3>🚚 Delivery Times</h3>
+            <p>Same Day Delivery: Order before 11:00 AM</p>
+            <p>Next Day Delivery: Order by 5:00 PM</p>
+            <p>Weekend Delivery: Available Saturday only</p>
+            <p>Delivery Hours: 9:00 AM – 6:00 PM</p>
+        </div>
+
+        <!-- Delivery Prices -->
+        <div class="info-box">
+            <h3>💰 Delivery Prices</h3>
+            <p>Local (within 5km): KSh 300</p>
+            <p>Standard (5km – 15km): KSh 600</p>
+            <p>Long Distance (15km+): KSh 1,200</p>
+            <p>Same Day Delivery: KSh 900</p>
+            <p><strong>Free delivery on orders over KSh 5,000! 🎉</strong></p>
+        </div>
+
+    </div>
 </div>
 <footer>
     <p>&copy; 2024 Bloom Haven Flower Shop</p>
